@@ -12,14 +12,14 @@ import origamis.springframework.brewery.service.BeerService;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1/beer/")
 @AllArgsConstructor
 @Slf4j
 public class BeerController {
     
     private final BeerService beerService;
     
-    @GetMapping("/{beerId}")
+    @GetMapping("{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable UUID beerId) {
         return ResponseEntity.ok(beerService.getBeerById(beerId));
     }
@@ -35,14 +35,14 @@ public class BeerController {
         return new ResponseEntity<>(httpHeaders, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{beerId}")
+    @PutMapping("{beerId}")
     public ResponseEntity<Void> updateBeer(@PathVariable UUID beerId, @RequestBody BeerDto beerDto) {
 
         beerService.updateBeer(beerId, beerDto);
         return ResponseEntity.noContent().build();
     }
     
-    @DeleteMapping("/{beerId}")
+    @DeleteMapping("{beerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeerById(@PathVariable UUID beerId) {
         log.info("Deleting beer with id {}", beerId);
