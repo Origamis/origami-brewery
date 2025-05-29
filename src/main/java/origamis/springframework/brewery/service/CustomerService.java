@@ -1,6 +1,6 @@
 package origamis.springframework.brewery.service;
 
-import origamis.springframework.brewery.domain.CustomerDto;
+import origamis.springframework.brewery.model.CustomerDto;
 
 import java.util.UUID;
 

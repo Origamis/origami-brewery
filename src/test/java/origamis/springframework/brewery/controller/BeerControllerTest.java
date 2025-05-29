@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import origamis.springframework.brewery.domain.BeerDto;
+import origamis.springframework.brewery.model.BeerDto;
 import origamis.springframework.brewery.service.BeerService;
 
 import java.util.UUID;

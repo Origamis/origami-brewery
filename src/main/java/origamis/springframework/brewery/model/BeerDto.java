@@ -1,4 +1,4 @@
-package origamis.springframework.brewery.domain;
+package origamis.springframework.brewery.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;

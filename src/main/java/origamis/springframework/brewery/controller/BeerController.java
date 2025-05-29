@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import origamis.springframework.brewery.domain.BeerDto;
+import origamis.springframework.brewery.model.BeerDto;
 import origamis.springframework.brewery.service.BeerService;
 
 import java.util.UUID;
