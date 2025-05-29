@@ -25,9 +25,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @Slf4j
 public class BeerController {
-    
+
     private final BeerService beerService;
-    
+
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable UUID beerId) {
         return ResponseEntity.ok(beerService.getBeerById(beerId));
@@ -35,12 +35,12 @@ public class BeerController {
 
     @PostMapping
     public ResponseEntity<BeerDto> saveBeer(@Valid @RequestBody BeerDto beerDto) {
-        
+
         var savedBeer = beerService.saveBeer(beerDto);
-        
+
         var httpHeaders = new HttpHeaders();
         httpHeaders.add("Location", "/api/v1/beer/" + savedBeer.getId().toString());
-        
+
         return new ResponseEntity<>(httpHeaders, HttpStatus.CREATED);
     }
 
@@ -50,7 +50,7 @@ public class BeerController {
         beerService.updateBeer(beerId, beerDto);
         return ResponseEntity.noContent().build();
     }
-    
+
     @DeleteMapping("/{beerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBeerById(@PathVariable UUID beerId) {

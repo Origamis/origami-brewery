@@ -1,5 +1,6 @@
 package origamis.springframework.brewery.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -33,7 +34,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerDto> saveCustomer(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<CustomerDto> saveCustomer(@Valid @RequestBody CustomerDto customerDto) {
 
         var savedCustomer = customerService.saveCustomer(customerDto);
 
@@ -44,7 +45,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity<Void> updateCustomer(@PathVariable UUID customerId, @RequestBody CustomerDto customerDto) {
+    public ResponseEntity<Void> updateCustomer(@Valid @PathVariable UUID customerId, @RequestBody CustomerDto customerDto) {
 
         customerService.updateCustomer(customerId, customerDto);
         return ResponseEntity.noContent().build();
