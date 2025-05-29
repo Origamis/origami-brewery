@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import origamis.springframework.brewery.model.BeerStyle;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
@@ -15,6 +17,9 @@ public class Beer {
 
     private UUID id;
     private String beerName;
-    private String beerStyle;
+    private BeerStyle beerStyle;
     private Long upc;
+
+    private Timestamp createdDate;
+    private Timestamp lastUpdatedDate;
 }

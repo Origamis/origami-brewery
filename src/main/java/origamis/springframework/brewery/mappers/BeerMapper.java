@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import origamis.springframework.brewery.domain.Beer;
 import origamis.springframework.brewery.model.BeerDto;
 
-@Mapper
+@Mapper(uses = {DateMapper.class})
 public interface BeerMapper {
 
     BeerDto toDto(Beer beer);
